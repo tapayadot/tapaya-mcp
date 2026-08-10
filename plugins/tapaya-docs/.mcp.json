@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "tapaya-docs": {
+      "type": "http",
+      "url": "https://docs.tapaya.com/mcp"
+    }
+  }
+}

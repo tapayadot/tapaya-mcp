@@ -1,0 +1,10 @@
+{
+  "name": "tapaya-docs",
+  "description": "Search the Tapaya docs and REST API from your AI editor. Adds the read-only Tapaya documentation MCP server.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Tapaya",
+    "url": "https://tapaya.com"
+  },
+  "homepage": "https://docs.tapaya.com/mcp-server"
+}

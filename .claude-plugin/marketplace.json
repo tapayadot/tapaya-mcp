@@ -1,0 +1,14 @@
+{
+  "name": "tapaya",
+  "owner": {
+    "name": "Tapaya",
+    "url": "https://tapaya.com"
+  },
+  "plugins": [
+    {
+      "name": "tapaya-docs",
+      "source": "./plugins/tapaya-docs",
+      "description": "Search the Tapaya documentation and REST API from your AI editor over MCP."
+    }
+  ]
+}
