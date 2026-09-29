@@ -13,6 +13,18 @@ claude plugin marketplace add tapayadot/tapaya-mcp
 claude plugin install tapaya-docs@tapaya
 ```
 
+Or add the server directly without the plugin:
+
+```bash
+claude mcp add --transport http tapaya-docs https://docs.tapaya.com/mcp
+```
+
+Then check it is connected:
+
+```bash
+claude mcp list
+```
+
 The server is public and read-only. No API key or secret is required.
 
 ## Requirements
@@ -61,6 +73,15 @@ Claude Desktop (MCP config):
 }
 ```
 
+Any other Streamable HTTP client: point it at `https://docs.tapaya.com/mcp`. You can list the available tools with a raw request:
+
+```bash
+curl -s https://docs.tapaya.com/mcp \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/json, text/event-stream" \
+  -d '{"jsonrpc":"2.0","id":1,"method":"tools/list"}'
+```
+
 One-click "Install in Cursor" and "Install in VS Code" links are on the docs page: [docs.tapaya.com/mcp-server](https://docs.tapaya.com/mcp-server).
 
 ## Tools
@@ -78,6 +99,8 @@ The server exposes five read-only tools.
 ## What it connects to
 
 A single remote MCP server at `https://docs.tapaya.com/mcp` over Streamable HTTP. Nothing runs locally; the plugin points your client at that endpoint.
+
+A discovery manifest is also published at [`https://docs.tapaya.com/.well-known/mcp.json`](https://docs.tapaya.com/.well-known/mcp.json) for clients that support well-known MCP discovery.
 
 ## Notes and safety
 

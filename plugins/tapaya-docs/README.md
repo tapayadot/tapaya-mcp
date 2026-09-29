@@ -15,7 +15,8 @@ claude plugin install tapaya-docs@tapaya
 ## What it connects to
 
 The plugin registers a single remote MCP server at
-`https://docs.tapaya.com/mcp` over Streamable HTTP.
+`https://docs.tapaya.com/mcp` over Streamable HTTP. A discovery manifest is
+published at `https://docs.tapaya.com/.well-known/mcp.json`.
 
 Full setup for other clients (Cursor, VS Code, Claude Desktop) is documented at
 https://docs.tapaya.com/mcp-server
