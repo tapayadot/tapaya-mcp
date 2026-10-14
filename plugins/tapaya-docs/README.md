@@ -5,6 +5,10 @@ public: no API key or secret is required. The server exposes five tools:
 `search_docs`, `get_page`, `list_pages`, `search_api_endpoints`, and
 `get_api_endpoint`, backed by the Tapaya docs and REST API.
 
+The docs cover In-Store Acceptance (Accept SDK, Tapaya Terminal) and Online
+Payments (Tapaya Checkout: Hosted and Embedded Checkout, and the
+`@tapayadot/checkout` Node.js SDK).
+
 ## Install (Claude Code)
 
 ```bash

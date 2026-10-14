@@ -4,6 +4,13 @@
 
 Model Context Protocol server for the Tapaya documentation and REST API. Connects any MCP client (Claude Code, Cursor, VS Code, Claude Desktop) to search the docs and explore the API without leaving your editor.
 
+The docs cover both Tapaya products:
+
+- **In-Store Acceptance**: the Accept SDK, Tapaya Terminal app, device security.
+- **Online Payments**: Tapaya Checkout (Hosted Checkout, Embedded Checkout, Checkout settings, Checkout security) and the `@tapayadot/checkout` Node.js SDK.
+
+Plus the shared Platform API, merchant onboarding, payouts, chargebacks, and compliance pages.
+
 ## Install
 
 Claude Code:
@@ -95,6 +102,8 @@ The server exposes five read-only tools.
 | `list_pages` | List every page as title, url, and description |
 | `search_api_endpoints` | Search the Tapaya REST API by keyword |
 | `get_api_endpoint` | Full parameters and responses for one endpoint |
+
+Checkout session calls are documented in the guide pages (for example `/online/integration/api_integration` and `/online/integration/node_sdk`), so reach them with `search_docs` and `get_page` rather than `search_api_endpoints`.
 
 ## What it connects to
 

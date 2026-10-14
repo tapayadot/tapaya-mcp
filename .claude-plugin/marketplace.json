@@ -8,7 +8,7 @@
     {
       "name": "tapaya-docs",
       "source": "./plugins/tapaya-docs",
-      "description": "Search the Tapaya documentation and REST API from your AI editor over MCP."
+      "description": "Search the Tapaya documentation (In-Store and Online Payments / Checkout) and REST API from your AI editor over MCP."
     }
   ]
 }
