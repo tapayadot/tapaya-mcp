@@ -1,8 +1,8 @@
 ![Tapaya Docs MCP](banner-github.png)
 
-![MCP](https://img.shields.io/badge/MCP-Streamable%20HTTP-blue) ![Claude Code](https://img.shields.io/badge/Claude%20Code-plugin-8A2BE2) ![Access](https://img.shields.io/badge/access-read--only-green) [![Docs](https://img.shields.io/badge/docs-tapaya.com-blue)](https://docs.tapaya.com) [![License](https://img.shields.io/badge/license-Apache%202.0-blue)](LICENSE)
+![MCP](https://img.shields.io/badge/MCP-Streamable%20HTTP-blue) ![Claude Code](https://img.shields.io/badge/Claude%20Code-plugin-8A2BE2) ![Access](https://img.shields.io/badge/access-public-green) [![Docs](https://img.shields.io/badge/docs-tapaya.com-blue)](https://docs.tapaya.com) [![License](https://img.shields.io/badge/license-Apache%202.0-blue)](LICENSE)
 
-Model Context Protocol server for the Tapaya documentation and REST API. Connects any MCP client (Claude Code, Cursor, VS Code, Claude Desktop) to search the docs and explore the API without leaving your editor.
+Model Context Protocol server for the Tapaya documentation and REST API. Connects any MCP client (Claude Code, Cursor, VS Code, Claude Desktop) to search the docs and explore the API without leaving your editor. Agents can also send a feature request to the Tapaya product team.
 
 The docs cover both Tapaya products:
 
@@ -32,7 +32,7 @@ Then check it is connected:
 claude mcp list
 ```
 
-The server is public and read-only. No API key or secret is required.
+The server is public. No API key or secret is required.
 
 ## Requirements
 
@@ -93,7 +93,7 @@ One-click "Install in Cursor" and "Install in VS Code" links are on the docs pag
 
 ## Tools
 
-The server exposes five read-only tools.
+The server exposes five read-only docs and API tools, plus one feedback tool.
 
 | Tool | Purpose |
 | --- | --- |
@@ -102,6 +102,7 @@ The server exposes five read-only tools.
 | `list_pages` | List every page as title, url, and description |
 | `search_api_endpoints` | Search the Tapaya REST API by keyword |
 | `get_api_endpoint` | Full parameters and responses for one endpoint |
+| `request_feature` | Send a [feature request](https://docs.tapaya.com/support/feature_request) to the Tapaya product team |
 
 Checkout session calls are documented in the guide pages (for example `/online/integration/api_integration` and `/online/integration/node_sdk`), so reach them with `search_docs` and `get_page` rather than `search_api_endpoints`.
 
@@ -113,13 +114,16 @@ A discovery manifest is also published at [`https://docs.tapaya.com/.well-known/
 
 ## Notes and safety
 
-- Read-only: the server never calls the live Tapaya API and never asks for keys or secrets.
+- The server never calls the live Tapaya API and never asks for API keys or secrets.
+- The only tool that sends anything is `request_feature`, which posts a message to the Tapaya product team. Enable confirmation for it in your client, so a person reviews each request before it is sent.
 - When combining multiple MCP servers, use the usual caution around prompt injection from tool output, and enable human confirmation for tools where your client supports it.
 
 ## Repository layout
 
 - `.claude-plugin/marketplace.json` defines the `tapaya` marketplace.
 - `plugins/tapaya-docs/` is the plugin: a `.mcp.json` declaring the remote Streamable HTTP server, plus its manifest and README.
+
+Found a problem or want another tool? [Request it](https://docs.tapaya.com/support/feature_request).
 
 ## Documentation
 

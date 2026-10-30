@@ -1,9 +1,12 @@
 # Tapaya Docs MCP
 
-Adds the Tapaya documentation MCP server to your AI editor. It is read-only and
-public: no API key or secret is required. The server exposes five tools:
+Adds the Tapaya documentation MCP server to your AI editor. It is public: no
+API key or secret is required. The server exposes five read-only tools,
 `search_docs`, `get_page`, `list_pages`, `search_api_endpoints`, and
-`get_api_endpoint`, backed by the Tapaya docs and REST API.
+`get_api_endpoint`, backed by the Tapaya docs and REST API, plus
+`request_feature`, which sends a feature request to the Tapaya product team.
+Enable confirmation for `request_feature` in your client so each request is
+reviewed before it is sent.
 
 The docs cover In-Store Acceptance (Accept SDK, Tapaya Terminal) and Online
 Payments (Tapaya Checkout: Hosted and Embedded Checkout, and the
