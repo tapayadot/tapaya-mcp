@@ -1,10 +1,19 @@
 {
   "name": "tapaya-docs",
+  "displayName": "Tapaya Docs",
   "description": "Search the Tapaya docs (In-Store Acceptance and Online Payments / Checkout) and REST API from your AI editor. Adds the Tapaya documentation MCP server, including a tool to send feature requests to the Tapaya team.",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "author": {
     "name": "Tapaya",
     "url": "https://tapaya.com"
   },
-  "homepage": "https://docs.tapaya.com/mcp-server"
+  "homepage": "https://docs.tapaya.com/mcp-server",
+  "repository": "https://github.com/tapayadot/tapaya-mcp",
+  "license": "Apache-2.0",
+  "keywords": ["tapaya", "payments", "checkout", "documentation", "api"],
+  "icon": "./assets/icon.png",
+  "documentationUrl": "https://docs.tapaya.com/mcp-server",
+  "supportUrl": "https://docs.tapaya.com/support",
+  "privacyPolicyUrl": "https://tapaya.com/privacy",
+  "termsOfServiceUrl": "https://tapaya.com/terms"
 }

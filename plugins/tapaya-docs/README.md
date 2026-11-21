@@ -27,3 +27,19 @@ published at `https://docs.tapaya.com/.well-known/mcp.json`.
 
 Full setup for other clients (Cursor, VS Code, Claude Desktop) is documented at
 https://docs.tapaya.com/mcp-server
+
+## Data and privacy
+
+The plugin installs no local code. It only points your client at
+`https://docs.tapaya.com/mcp`. The docs and API tools send your search terms
+and the page or endpoint you ask for to that server, and return public
+documentation. `request_feature` sends the text of your feature request to the
+Tapaya product team. Nothing else is sent, and no API key or account is used.
+
+- Privacy policy: https://tapaya.com/privacy
+- Terms: https://tapaya.com/terms
+- Support: https://docs.tapaya.com/support
+
+## License
+
+Apache-2.0. See the `LICENSE` file at the repository root.
