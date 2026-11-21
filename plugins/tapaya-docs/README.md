@@ -12,22 +12,27 @@ The docs cover In-Store Acceptance (Accept SDK, Tapaya Terminal) and Online
 Payments (Tapaya Checkout: Hosted and Embedded Checkout, and the
 `@tapayadot/checkout` Node.js SDK).
 
-## Demo skills
+## Skills
 
-The plugin also adds three skills. Each one has Claude check the current docs
-through the MCP server, then scaffold a small demo that makes real calls to
-the Tapaya sandbox with your own sandbox key. Keys are read from environment
-variables and stay on the server.
+The plugin also adds eight skills. Each one has Claude check the current docs
+through the MCP server before answering or writing code, cite the pages it
+used, and say when the docs do not cover something. Code the skills help you
+write reads keys from environment variables and keeps them on your server.
 
-| Skill | What it builds | Example prompt |
+| Skill | What it does | Example prompt |
 | --- | --- | --- |
-| `demo-tap-to-pay` | An Android (Kotlin) app with the Accept SDK, plus a tiny Node.js server that issues the SDK login token | "Build me a Tapaya Tap to Pay demo for my Pixel" |
-| `demo-hosted-checkout` | A Node.js server that creates a Hosted Checkout session, redirects to it, and verifies the payment | "Make a minimal Tapaya Hosted Checkout demo in Node" |
-| `demo-embedded-checkout` | A Node.js server and a page with Tapaya's embedded card fields | "Show me Tapaya Embedded Checkout card fields in a demo page" |
+| `answer-tapaya-questions` | Answers Tapaya questions from the docs with page links, and drafts a feature request you confirm before it is sent | "How do I refund a Hosted Checkout payment with Tapaya?" |
+| `demo-tap-to-pay` | Builds an Android (Kotlin) Accept SDK demo, plus a tiny Node.js server that issues the SDK login token | "Build me a Tapaya Tap to Pay demo for my Pixel" |
+| `demo-hosted-checkout` | Builds a Node.js server that creates a Hosted Checkout session, redirects to it, and verifies the payment | "Make a minimal Tapaya Hosted Checkout demo in Node" |
+| `demo-embedded-checkout` | Builds a Node.js server and a page with Tapaya's embedded card fields | "Show me Tapaya Embedded Checkout card fields in a demo page" |
+| `webhooks` | Configures a webhook destination and writes a receiver that verifies signatures, then tests it | "Add a verified Tapaya webhook receiver to my Express app" |
+| `merchant-onboarding` | Picks an onboarding flow and walks through the Platform API calls to onboard and manage merchants | "Onboard merchants for Checkout from our own signup form" |
+| `saved-cards` | Saves cards with consent and charges them later: subscriptions, trials, top-ups, holds, refunds | "Add monthly renewals with saved cards to my Tapaya checkout" |
+| `go-live-check` | Reviews your integration against the QA checklists and reports pass, fail, or unknown per item | "Is my Tapaya integration ready for production?" |
 
-You need a sandbox organization in the Tapaya Platform: a merchant checkout
-key for the Checkout demos, or a Server Secret Token and a physical Android
-device for Tap to Pay. Each skill says where to find them.
+The demos need a sandbox organization in the Tapaya Platform: a merchant
+checkout key for the Checkout demos, or a Server Secret Token and a physical
+Android device for Tap to Pay. Each skill says where to find them.
 
 ## Install (Claude Code)
 
@@ -48,16 +53,16 @@ https://docs.tapaya.com/mcp-server
 ## Data and privacy
 
 The plugin installs no executable code. It points your client at
-`https://docs.tapaya.com/mcp` and adds three demo skills, which are Markdown
+`https://docs.tapaya.com/mcp` and adds eight skills, which are Markdown
 instructions and templates. The docs and API tools send your search terms and
 the page or endpoint you ask for to that server, and return public
 documentation. `request_feature` sends the text of your feature request to the
 Tapaya product team. The plugin itself uses no API key or account.
 
-The skills send nothing. The demo apps they help you build run on your machine
-and call the Tapaya sandbox API (`https://api.sandbox.tapaya.com`) with your
-own sandbox key, read from a local `.env` file that the demos keep out of
-version control.
+The skills send nothing. Code they help you build, such as the demo apps,
+runs on your machine and calls the Tapaya sandbox API
+(`https://api.sandbox.tapaya.com`) with your own sandbox key, read from a
+local `.env` file that the demos keep out of version control.
 
 - Privacy policy: https://tapaya.com/privacy
 - Terms: https://tapaya.com/terms

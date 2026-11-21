@@ -172,9 +172,11 @@ Say so instead of guessing:
 - **iOS / Tap to Pay on iPhone.** No iOS SDK is documented (the login
   endpoint's `employeeEmail` field mentions Tap to Pay on iPhone, but nothing
   else does).
-- **Test cards.** The in-store docs name no test cards. They say sandbox
-  still needs a physical NFC device, only funds movement is simulated, and the
-  outcome follows the amount. Which card to tap is not stated.
+- **Test cards.** The in-store docs name no sandbox test cards. They say
+  sandbox still needs a physical NFC device, only funds movement is
+  simulated, and the outcome follows the amount; the QA checklist (HI-1)
+  says to test with physical cards and digital wallets. Whether any real card
+  works in sandbox is not stated.
 - **Build setup.** No `minSdk`, Gradle, AGP, or Kotlin version is documented,
   and no Kotlin `import` paths for SDK classes.
 - **Debug builds.** Supported Devices lists "USB debugging off,
