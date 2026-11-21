@@ -8,7 +8,7 @@
     {
       "name": "tapaya-docs",
       "source": "./plugins/tapaya-docs",
-      "description": "Search the Tapaya documentation (In-Store and Online Payments / Checkout) and REST API from your AI editor over MCP."
+      "description": "Search the Tapaya documentation (In-Store and Online Payments / Checkout) and REST API from your AI editor over MCP, with skills for Tap to Pay, Hosted and Embedded Checkout demos, webhooks, merchant onboarding, saved cards, and a go-live check."
     }
   ]
 }
