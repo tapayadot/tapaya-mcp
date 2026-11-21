@@ -39,7 +39,7 @@ The server is public. No API key or secret is required.
 - An MCP client that supports remote Streamable HTTP servers.
 - Network access to `https://docs.tapaya.com/mcp`.
 
-There is no local runtime and no build step. The plugin only registers a remote server.
+There is no local runtime and no build step. The plugin registers a remote server and adds Markdown skills.
 
 ## Other clients
 
@@ -106,6 +106,16 @@ The server exposes five read-only docs and API tools, plus one feedback tool.
 
 Checkout session calls are documented in the guide pages (for example `/online/integration/api_integration` and `/online/integration/node_sdk`), so reach them with `search_docs` and `get_page` rather than `search_api_endpoints`.
 
+## Demo skills
+
+The Claude Code plugin also ships three skills that build a small working demo of each Tapaya payment flow against the sandbox. Claude checks the current docs with the tools above before writing any code.
+
+- `demo-tap-to-pay`: an Android (Kotlin) app with the Accept SDK, plus a tiny Node.js server that issues the SDK login token.
+- `demo-hosted-checkout`: a Node.js server that creates a Hosted Checkout session, redirects to it, and verifies the payment.
+- `demo-embedded-checkout`: a Node.js server and a page with Tapaya's embedded card fields.
+
+Ask for one in plain words, for example "Build me a Tapaya Hosted Checkout demo". The demos read your own sandbox key from a local `.env` file and keep it on the server. The skills are only available through the plugin, not when you add the MCP server on its own.
+
 ## What it connects to
 
 A single remote MCP server at `https://docs.tapaya.com/mcp` over Streamable HTTP. Nothing runs locally; the plugin points your client at that endpoint.
@@ -115,13 +125,14 @@ A discovery manifest is also published at [`https://docs.tapaya.com/.well-known/
 ## Notes and safety
 
 - The server never calls the live Tapaya API and never asks for API keys or secrets.
+- The demo skills send nothing themselves. The demos they build call the Tapaya sandbox API with your own sandbox key from a local `.env` file.
 - The only tool that sends anything is `request_feature`, which posts a message to the Tapaya product team. Enable confirmation for it in your client, so a person reviews each request before it is sent.
 - When combining multiple MCP servers, use the usual caution around prompt injection from tool output, and enable human confirmation for tools where your client supports it.
 
 ## Repository layout
 
 - `.claude-plugin/marketplace.json` defines the `tapaya` marketplace.
-- `plugins/tapaya-docs/` is the plugin: a `.mcp.json` declaring the remote Streamable HTTP server, plus its manifest and README.
+- `plugins/tapaya-docs/` is the plugin: a `.mcp.json` declaring the remote Streamable HTTP server, the demo skills under `skills/`, plus its manifest and README.
 
 Found a problem or want another tool? [Request it](https://docs.tapaya.com/support/feature_request).
 

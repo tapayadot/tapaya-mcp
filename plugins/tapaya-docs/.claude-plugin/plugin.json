@@ -1,8 +1,8 @@
 {
   "name": "tapaya-docs",
   "displayName": "Tapaya Docs",
-  "description": "Search the Tapaya docs (In-Store Acceptance and Online Payments / Checkout) and REST API from your AI editor. Adds the Tapaya documentation MCP server, including a tool to send feature requests to the Tapaya team.",
-  "version": "0.1.3",
+  "description": "Search the Tapaya docs (In-Store Acceptance and Online Payments / Checkout) and REST API from your AI editor. Adds the Tapaya documentation MCP server, including a tool to send feature requests to the Tapaya team, and demo skills that build working sandbox demos of Tap to Pay, Hosted Checkout, and Embedded Checkout.",
+  "version": "0.2.0",
   "author": {
     "name": "Tapaya",
     "url": "https://tapaya.com"

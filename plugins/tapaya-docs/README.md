@@ -12,6 +12,23 @@ The docs cover In-Store Acceptance (Accept SDK, Tapaya Terminal) and Online
 Payments (Tapaya Checkout: Hosted and Embedded Checkout, and the
 `@tapayadot/checkout` Node.js SDK).
 
+## Demo skills
+
+The plugin also adds three skills. Each one has Claude check the current docs
+through the MCP server, then scaffold a small demo that makes real calls to
+the Tapaya sandbox with your own sandbox key. Keys are read from environment
+variables and stay on the server.
+
+| Skill | What it builds | Example prompt |
+| --- | --- | --- |
+| `demo-tap-to-pay` | An Android (Kotlin) app with the Accept SDK, plus a tiny Node.js server that issues the SDK login token | "Build me a Tapaya Tap to Pay demo for my Pixel" |
+| `demo-hosted-checkout` | A Node.js server that creates a Hosted Checkout session, redirects to it, and verifies the payment | "Make a minimal Tapaya Hosted Checkout demo in Node" |
+| `demo-embedded-checkout` | A Node.js server and a page with Tapaya's embedded card fields | "Show me Tapaya Embedded Checkout card fields in a demo page" |
+
+You need a sandbox organization in the Tapaya Platform: a merchant checkout
+key for the Checkout demos, or a Server Secret Token and a physical Android
+device for Tap to Pay. Each skill says where to find them.
+
 ## Install (Claude Code)
 
 ```bash
@@ -30,11 +47,17 @@ https://docs.tapaya.com/mcp-server
 
 ## Data and privacy
 
-The plugin installs no local code. It only points your client at
-`https://docs.tapaya.com/mcp`. The docs and API tools send your search terms
-and the page or endpoint you ask for to that server, and return public
+The plugin installs no executable code. It points your client at
+`https://docs.tapaya.com/mcp` and adds three demo skills, which are Markdown
+instructions and templates. The docs and API tools send your search terms and
+the page or endpoint you ask for to that server, and return public
 documentation. `request_feature` sends the text of your feature request to the
-Tapaya product team. Nothing else is sent, and no API key or account is used.
+Tapaya product team. The plugin itself uses no API key or account.
+
+The skills send nothing. The demo apps they help you build run on your machine
+and call the Tapaya sandbox API (`https://api.sandbox.tapaya.com`) with your
+own sandbox key, read from a local `.env` file that the demos keep out of
+version control.
 
 - Privacy policy: https://tapaya.com/privacy
 - Terms: https://tapaya.com/terms
